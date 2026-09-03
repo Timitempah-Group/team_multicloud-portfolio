@@ -4,3 +4,7 @@
 .terraform.lock.hcl
 *.tfvars
 .DS_Store
+tfplan
+*.tfplan
+tfplan
+*.tfplan
