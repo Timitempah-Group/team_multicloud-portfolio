@@ -77,9 +77,51 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
+# A second public subnet in a different AZ. Needed because RDS requires a
+# DB Subnet Group to span at least two AZs, and this task's RDS instance
+# must remain internet-reachable (publicly_accessible = true) for local
+# seeding and DMS access -- a private subnet in a second AZ would satisfy
+# the AZ requirement but break reachability, since private subnets have no
+# route to the Internet Gateway.
+resource "aws_subnet" "public_b" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "10.100.4.0/24"
+  availability_zone       = "eu-west-2b"
+  map_public_ip_on_launch = true
+  tags = {
+    Name    = "multicloud-portfolio-public-b"
+    Project = var.project_tag
+    Task    = "01-cross-cloud-foundations"
+  }
+}
+
+resource "aws_route_table_association" "public_b" {
+  subnet_id      = aws_subnet.public_b.id
+  route_table_id = aws_route_table.public.id
+}
+
 # Connects the private subnet to its signpost
 resource "aws_route_table_association" "private" {
   subnet_id      = aws_subnet.private.id
+  route_table_id = aws_route_table.private.id
+}
+
+# A second private subnet in a different AZ, added solely to satisfy RDS's
+# requirement that a DB Subnet Group span at least two Availability Zones --
+# not used for any other workload placement in this portfolio.
+resource "aws_subnet" "private_b" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.100.3.0/24"
+  availability_zone = "eu-west-2b"
+  tags = {
+    Name    = "multicloud-portfolio-private-b"
+    Project = var.project_tag
+    Task    = "01-cross-cloud-foundations"
+  }
+}
+
+resource "aws_route_table_association" "private_b" {
+  subnet_id      = aws_subnet.private_b.id
   route_table_id = aws_route_table.private.id
 }
 

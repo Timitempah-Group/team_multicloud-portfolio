@@ -13,3 +13,7 @@ output "azure_gateway_subnet_id" { value = azurerm_subnet.gateway.id }
 output "azure_workload_subnet_id" { value = azurerm_subnet.workload.id }
 output "azure_public_ip_name" { value = azurerm_public_ip.vpn_gateway.name }
 output "azure_public_ip_address" { value = azurerm_public_ip.vpn_gateway.ip_address }
+
+output "aws_private_subnet_b_id" { value = aws_subnet.private_b.id }
+
+output "aws_public_subnet_b_id" { value = aws_subnet.public_b.id }
