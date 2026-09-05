@@ -17,3 +17,5 @@ output "azure_public_ip_address" { value = azurerm_public_ip.vpn_gateway.ip_addr
 output "aws_private_subnet_b_id" { value = aws_subnet.private_b.id }
 
 output "aws_public_subnet_b_id" { value = aws_subnet.public_b.id }
+
+output "azure_appgw_subnet_id" { value = azurerm_subnet.appgw.id }

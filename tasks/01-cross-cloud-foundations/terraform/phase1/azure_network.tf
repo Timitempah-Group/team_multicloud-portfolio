@@ -37,6 +37,15 @@ resource "azurerm_subnet" "workload" {
   address_prefixes     = ["10.200.1.0/24"]
 }
 
+# Dedicated subnet for Application Gateway -- required, cannot share with
+# other resource types
+resource "azurerm_subnet" "appgw" {
+  name                 = "snet-appgw"
+  resource_group_name  = azurerm_resource_group.main.name
+  virtual_network_name = azurerm_virtual_network.main.name
+  address_prefixes     = ["10.200.2.0/24"]
+}
+
 # Azure's "street address" — a fixed public IP that AWS will need to know
 # in order to send traffic toward Azure's side of the tunnel
 resource "azurerm_public_ip" "vpn_gateway" {
