@@ -1,0 +1,52 @@
+{
+  "title": "Cross-Cloud Workload Health",
+  "schemaVersion": 39,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "AWS - ALB Request Count",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "datasource": { "type": "cloudwatch", "uid": "dfyzzf842n94wd" },
+      "targets": [{
+        "namespace": "AWS/ApplicationELB",
+        "metricName": "RequestCount",
+        "statistic": "Sum",
+        "dimensions": { "LoadBalancer": "app/multicloud-task3-alb/4ed41f7f69e912ab" }
+      }]
+    },
+    {
+      "type": "timeseries",
+      "title": "Azure - App Gateway Total Requests",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "cfz00pzvnnoqod" },
+      "targets": [{
+        "resourceUri": "/subscriptions/81197388-0d27-49a4-a47d-91730e333ca2/resourceGroups/rg-multicloud-portfolio/providers/Microsoft.Network/applicationGateways/appgw-multicloud-task4",
+        "metricName": "TotalRequests",
+        "aggregation": "Total"
+      }]
+    },
+    {
+      "type": "timeseries",
+      "title": "AWS - ASG In-Service Instance Count",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+      "datasource": { "type": "cloudwatch", "uid": "dfyzzf842n94wd" },
+      "targets": [{
+        "namespace": "AWS/AutoScaling",
+        "metricName": "GroupInServiceInstances",
+        "statistic": "Average",
+        "dimensions": { "AutoScalingGroupName": "multicloud-task3-asg" }
+      }]
+    },
+    {
+      "type": "timeseries",
+      "title": "Azure - App Service CPU Time",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+      "datasource": { "type": "grafana-azure-monitor-datasource", "uid": "cfz00pzvnnoqod" },
+      "targets": [{
+        "resourceUri": "/subscriptions/81197388-0d27-49a4-a47d-91730e333ca2/resourceGroups/rg-multicloud-portfolio/providers/Microsoft.Web/sites/app-multicloud-task4",
+        "metricName": "CpuTime",
+        "aggregation": "Total"
+      }]
+    }
+  ]
+}
