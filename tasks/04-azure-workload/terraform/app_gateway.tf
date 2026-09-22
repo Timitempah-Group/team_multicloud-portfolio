@@ -4,6 +4,7 @@ resource "azurerm_public_ip" "appgw" {
   location            = "uksouth"
   allocation_method   = "Static"
   sku                 = "Standard"
+  domain_name_label   = "multicloud-task4-appgw" # Gives this IP a real DNS name, required so Traffic Manager's targets are all domain-name type, not a mix of domain and IP
 
   tags = {
     Project = "multicloud-portfolio"
