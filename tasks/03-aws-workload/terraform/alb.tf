@@ -11,8 +11,9 @@ resource "aws_lb" "main" {
   ]
 
   tags = {
-    Project = "multicloud-portfolio"
-    Task    = "03-aws-workload"
+    Project    = "multicloud-portfolio"
+    Task       = "03-aws-workload"
+    DeployedBy = "github-actions"
   }
 }
 
