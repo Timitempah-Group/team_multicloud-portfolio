@@ -1,7 +1,7 @@
 # The target -- a logical Azure SQL Server (not a VM) hosting the migrated database.
 resource "azurerm_mssql_server" "main" {
   name                         = "sql-multicloud-portfolio"
-  resource_group_name         = data.terraform_remote_state.phase1.outputs.azure_resource_group_name
+  resource_group_name         = "rg-multicloud-portfolio"
   location                     = "uksouth"
   version                      = "12.0"
   administrator_login          = "sqladmin"

@@ -34,6 +34,6 @@ resource "azurerm_traffic_manager_external_endpoint" "aws_primary" {
 resource "azurerm_traffic_manager_external_endpoint" "azure_secondary" {
   name       = "azure-secondary"
   profile_id = azurerm_traffic_manager_profile.main.id
-  target     = data.terraform_remote_state.task4.outputs.appgw_fqdn
+  target     = "placeholder.example.com"
   priority   = 2
 }

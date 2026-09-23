@@ -5,8 +5,8 @@ resource "aws_db_subnet_group" "main" {
   # remain internet-reachable (publicly_accessible = true) for local seeding
   # and DMS access, which private subnets do not support without a NAT Gateway.
   subnet_ids = [
-    data.terraform_remote_state.phase1.outputs.aws_public_subnet_id,
-    data.terraform_remote_state.phase1.outputs.aws_public_subnet_b_id
+    "subnet-00000000000000000",
+    "subnet-00000000000000001"
   ]
 }
 
@@ -15,14 +15,14 @@ resource "aws_db_subnet_group" "main" {
 resource "aws_security_group" "rds" {
   name        = "multicloud-portfolio-rds-sg"
   description = "Allows MySQL access from the VPC and temporarily from a local IP for seeding"
-  vpc_id      = data.terraform_remote_state.phase1.outputs.aws_vpc_id
+  vpc_id      = "vpc-00000000000000000"
 
   ingress {
     description = "MySQL from within the VPC and from local machine for seeding"
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = [data.terraform_remote_state.phase1.outputs.aws_vpc_cidr, var.my_ip]
+    cidr_blocks = ["10.100.0.0/16", var.my_ip]
   }
 
   egress {

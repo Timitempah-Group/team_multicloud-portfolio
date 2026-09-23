@@ -29,8 +29,8 @@ resource "aws_dms_replication_subnet_group" "main" {
   replication_subnet_group_id          = "multicloud-portfolio-dms"
   replication_subnet_group_description = "DMS subnet group for cross-cloud migration"
   subnet_ids = [
-    data.terraform_remote_state.phase1.outputs.aws_public_subnet_id,
-    data.terraform_remote_state.phase1.outputs.aws_public_subnet_b_id
+    "subnet-00000000000000000",
+    "subnet-00000000000000001"
   ]
 }
 

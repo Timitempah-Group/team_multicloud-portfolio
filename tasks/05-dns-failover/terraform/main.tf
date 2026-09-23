@@ -57,7 +57,7 @@ resource "aws_route53_record" "secondary" {
   type           = "A"
   ttl            = 30
   set_identifier = "azure-secondary"
-  records        = [data.terraform_remote_state.task4.outputs.appgw_public_ip]
+  records        = ["0.0.0.0"]
 
   failover_routing_policy {
     type = "SECONDARY"

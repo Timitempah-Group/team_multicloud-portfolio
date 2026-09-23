@@ -1,0 +1,4 @@
+=== AFTER: AWS resources tagged Project=multicloud-portfolio ===
+
+=== AFTER: Azure resource group rg-multicloud-portfolio exists? ===
+false

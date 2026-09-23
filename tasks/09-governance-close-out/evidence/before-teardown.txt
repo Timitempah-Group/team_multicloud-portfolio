@@ -1,0 +1,31 @@
+=== BEFORE: AWS resources tagged Project=multicloud-portfolio ===
+----------------------------------------------------------------------------------------------------------------
+|                                                 GetResources                                                 |
++--------------------------------------------------------------------------------------------------------------+
+|  arn:aws:ec2:eu-west-2:623182520016:instance/i-0f10fbf5c72b44fdc                                             |
+|  arn:aws:ec2:eu-west-2:623182520016:route-table/rtb-0bbe29cb0f6379d41                                        |
+|  arn:aws:ec2:eu-west-2:623182520016:vpc-endpoint/vpce-0b9bfc11f72f35f39                                      |
+|  arn:aws:ec2:eu-west-2:623182520016:vpn-gateway/vgw-032cd0d243f439a79                                        |
+|  arn:aws:ec2:eu-west-2:623182520016:security-group/sg-04597d301c1a18b7d                                      |
+|  arn:aws:ec2:eu-west-2:623182520016:vpc/vpc-0eaefb06706cf5d6a                                                |
+|  arn:aws:ec2:eu-west-2:623182520016:subnet/subnet-0e115349e9b58ef5d                                          |
+|  arn:aws:elasticloadbalancing:eu-west-2:623182520016:targetgroup/multicloud-task3-tg/f682fe8af42bf2e6        |
+|  arn:aws:ec2:eu-west-2:623182520016:internet-gateway/igw-09777141f32363fb8                                   |
+|  arn:aws:ec2:eu-west-2:623182520016:route-table/rtb-0361036bfc9311876                                        |
+|  arn:aws:ec2:eu-west-2:623182520016:security-group/sg-0226674953efe6967                                      |
+|  arn:aws:ec2:eu-west-2:623182520016:subnet/subnet-0beb6d54ef63ad282                                          |
+|  arn:aws:elasticloadbalancing:eu-west-2:623182520016:loadbalancer/app/multicloud-task3-alb/4ed41f7f69e912ab  |
+|  arn:aws:ec2:eu-west-2:623182520016:instance/i-00c11e536278c554a                                             |
+|  arn:aws:ec2:eu-west-2:623182520016:subnet/subnet-0c869ef2eb6287c1c                                          |
+|  arn:aws:ec2:eu-west-2:623182520016:subnet/subnet-08fe1af2dfb644fe2                                          |
+|  arn:aws:secretsmanager:eu-west-2:623182520016:secret:multicloud-portfolio/task02-db-admin-password-OzGA4m   |
++--------------------------------------------------------------------------------------------------------------+
+
+=== BEFORE: Azure resources in rg-multicloud-portfolio ===
+Name                                Type
+----------------------------------  ----------------------------------------
+vnet-multicloud-portfolio           Microsoft.Network/virtualNetworks
+sql-multicloud-portfolio            Microsoft.Sql/servers
+sql-multicloud-portfolio/master     Microsoft.Sql/servers/databases
+sql-multicloud-portfolio/portfolio  Microsoft.Sql/servers/databases
+tm-multicloud-portfolio             Microsoft.Network/trafficmanagerprofiles
