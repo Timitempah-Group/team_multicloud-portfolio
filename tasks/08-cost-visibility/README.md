@@ -28,6 +28,12 @@ Tax is excluded from these figures for a like-for-like comparison; AWS's own tax
 
 ## Screenshots
 
+**AWS Cost Explorer report, account-wide breakdown by service:**
+
+![AWS Cost Explorer report](screenshots/aws-cost-explorer-report.png)
+
+The console's own total ($48.11, including $8.02 tax) confirms the $40.09 pre-tax figure used in the combined chart above, cross-checked independently against both the CLI query and the account's actual bill.
+
 **Azure Cost Management report, scoped to the resource group:**
 
 ![Azure Cost Management report](screenshots/azure-cost-management-report.png)
@@ -35,8 +41,4 @@ Tax is excluded from these figures for a like-for-like comparison; AWS's own tax
 ## Artifacts
 
 - `combine_costs.py` -- generates the combined cost chart from both clouds' totals
-- `reports/cost-summary.png` -- the resulting chart
-
-## AWS Evidence
-
-Since the AWS total is sourced from a plain account-wide Cost Explorer query rather than a screenshot, the same evidence takes the form of command output -- see this task's README above for the exact command and full itemized breakdown used to arrive at the $40.09 figure.
+- `reports/cost-summary.png` -- the resulting combined chart
