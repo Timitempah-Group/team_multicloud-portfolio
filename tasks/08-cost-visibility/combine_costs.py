@@ -1,9 +1,14 @@
 import matplotlib.pyplot as plt
 
-# AWS total: pending -- Cost Explorer's Project tag filter was only activated
-# today and can take up to 24 hours to populate. Re-run the tag-filtered
-# query once available and update this value before finalizing.
-aws_total_usd = 0.00  # PLACEHOLDER -- replace once tag-filtered query returns real data
+# AWS total: sourced from the full account-wide Cost Explorer breakdown
+# (Sept 1-24), not the Project tag filter -- AWS cost allocation tags are
+# not retroactive, so a tag activated only hours before this data was
+# needed cannot attribute historical usage. Every non-zero service in the
+# account-wide breakdown matches this project's known resource types
+# (EC2, ELB, RDS, DMS, VPC, Route 53, Secrets Manager, plus the small
+# Terraform state backend and Cost Explorer's own API charges), giving
+# high confidence this total genuinely reflects this project. Pre-tax.
+aws_total_usd = 40.09
 
 # Azure total: confirmed from Cost Management, scoped to rg-multicloud-portfolio,
 # September 2026 to date. Converted from GBP to USD at approximately 1.27 (Sept 2026 rate).
