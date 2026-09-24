@@ -23,7 +23,7 @@ Every task is built with Terraform, documented with its own README, and backed b
 | 7 | [The Cross-Cloud Dashboard](tasks/07-cross-cloud-dashboard) | Both clouds' health visualised side by side, captured live during an induced failure and recovery |
 | 8 | [Cost Visibility Across Both Clouds](tasks/08-cost-visibility) | Combined AWS + Azure spend in a single view, filtered to this project specifically |
 | 9 | [Security & Cost Governance Close-Out](tasks/09-governance-close-out) | A verified, zero-orphan teardown of everything built -- nothing left running, nothing forgotten |
-| 10 | Cross-Cloud CI/CD | Pipelines (GitHub Actions for AWS, Azure DevOps for Azure) that deploy real infrastructure from nothing, gated by review |
+| 10 | [Cross-Cloud CI/CD](tasks/10-cross-cloud-cicd) | Pipelines (GitHub Actions for AWS, Azure Pipelines for Azure) that deploy real infrastructure from nothing, gated by review |
 
 ## Repository Structure
 
@@ -41,4 +41,4 @@ Several decisions across this project were driven as much by operational discipl
 
 ## Current Status
 
-Tasks 1-9 complete. Task 10 in progress.
+All ten tasks complete. The account is verified in a zero-orphan state -- every resource built across this project has been torn down, with the evidence in each task's README standing as proof the infrastructure worked while it was live.
