@@ -23,7 +23,13 @@ resource "aws_iam_role" "github_actions" {
           "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
         }
         StringLike = {
-          "token.actions.githubusercontent.com:sub" = "repo:Timitempah-Group/team_multicloud-portfolio:*"
+          # This GitHub organization has OIDC subject claim customization
+          # enabled, appending numeric org/repo IDs to the claim (e.g.
+          # "repo:Timitempah-Group@297548596/team_multicloud-portfolio@1338876177:...")
+          # rather than the plain "repo:OWNER/REPO:..." format most examples
+          # assume. Discovered by printing the actual token claims during
+          # a failed first run, rather than guessing at the format.
+          "token.actions.githubusercontent.com:sub" = "repo:Timitempah-Group@*/team_multicloud-portfolio@*:*"
         }
       }
     }]
